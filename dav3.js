@@ -4,8 +4,7 @@ function complex(...args) {
         const checkTimes = checkNum.map((item) => item % 2 === 0 ? item / 2 : item ** 2);
         const sum = checkTimes.reduce((a, b) => a + b);
         return Math.floor(sum / 2);
-    }
-    catch {
+    } catch {
         const error = "No numbers in array";
         return error;
     }
