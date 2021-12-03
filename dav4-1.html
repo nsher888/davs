@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .textColor {
+        color: red;
+    }
+</style>
+
+<body>
+    <ul id='newlist'>
+
+    </ul>
+
+    <button id='add' type="button">Add List</button>
+    <button id='remove' type="button">Remove</button>
+
+    <p id='sample'>A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.</p>
+    <button id="btn">Do It!</button>
+
+    <script>
+        const users = [{
+                name: 'Giorgi',
+                age: 17
+            },
+            {
+                name: 'Lasha',
+                age: 21
+            },
+            {
+                name: 'Tornike',
+                age: 71
+            },
+            {
+                name: 'Nano',
+                age: 62
+            },
+            {
+                name: 'Nia',
+                age: 15
+            },
+            {
+                name: 'Nana',
+                age: 16
+            }
+        ];
+
+        const add = document.querySelector('#add')
+        const remove = document.querySelector('#remove')
+        const ul = document.getElementById('newlist');
+
+        // const newUsers = users.filter(user => user.age > 18)
+        // for (var i = 0; i < newUsers.length; i++) {
+        //     let name = newUsers[i].name;
+        //     let li = document.createElement('li');
+        //     li.appendChild(document.createTextNode(name));
+        //     ul.appendChild(li);
+        // }
+
+        function addList() {
+            users.filter(user => user.age > 18).forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item.name;
+                ul.appendChild(li);
+                console.log('addclick')
+            })
+        }
+
+
+        function removeNode() {
+            document.getElementById('newlist').outerHTML = '';
+        }
+
+
+        add.onclick = addList;
+        remove.onclick = removeNode;
+
+
+
+        ////////////////////////// TAST 3 
+
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', function () {
+            const sample = document.querySelector('#sample');
+            if (!sample.classList.contains('textColor')) {
+                sample.classList.add('textColor')
+            } else {
+                sample.classList.remove('textColor')
+            }
+        })
+    </script>
+</body>
+
+</html>
