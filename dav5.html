@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+    <form action="/submit" method="post" class="form">
+        <input type="text" name="usertext" placeholder="Enter your text here">
+        <button type="submit">Submit</button>
+    </form>
+    <ul class="ul"></ul>
+    <p class="errorMsg"></p>
+
+
+
+    <script>
+        const form = document.querySelector('.form')
+        const ul = document.querySelector('.ul')
+        const li = document.createElement('li');
+        const input = document.querySelector('input[name="usertext"]')
+        const errorMsg = document.querySelector('.errorMsg')
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            errorMsg.textContent = "";
+            if (input.value.trim()) {
+                const li = document.createElement('li');
+                li.textContent = input.value;
+                const del = document.createElement('button');
+                del.innerHTML = '<i class="fas fa-window-close"></i>';
+                del.addEventListener('click', function (event) {
+                    del.parentNode.remove();
+                });
+                del.style.marginLeft = '5px';
+                li.style.marginBottom = '5px';
+                li.appendChild(del);
+                ul.appendChild(li);
+                input.value = "";
+                input.focus();
+            } else {
+                errorMsg.textContent = "Empty Value!"
+            }
+
+        })
+    </script>
+</body>
+
+</html>
