@@ -35,7 +35,7 @@
                 const del = document.createElement('button');
                 del.innerHTML = '<i class="fas fa-window-close"></i>';
                 del.addEventListener('click', function (event) {
-                    del.parentNode.remove();
+                    this.parentNode.remove();
                 });
                 del.style.marginLeft = '5px';
                 li.style.marginBottom = '5px';
