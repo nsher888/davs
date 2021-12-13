@@ -1,4 +1,4 @@
-fetch('https://fakerapi.it/api/v1/images?_quantity=15&_type=kittens&_height=480')
+fetch('https://fakerapi.it/api/v1/images?_quantity=4&_type=kittens&_height=480')
     .then(response => {
         return response.json();
     })
