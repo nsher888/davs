@@ -5,16 +5,6 @@ const btn = document.querySelector('.btn');
 
 
 
-
-
-// axios.get(url)
-//     .then(response => {
-//         console.log(response);
-//     })
-
-
-
-
 async function quoteGenerator() {
     try {
         const response = await axios.get(url)
